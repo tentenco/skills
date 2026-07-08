@@ -54,8 +54,21 @@ Every skill is self-contained: one folder, everything it needs, plus a human-rea
 | Skill | Description |
 |-------|-------------|
 | [multi-model-orchestrator](./skills/engineering/multi-model-orchestrator/SKILL.md) | Run complex dev tasks as a multi-model team: the main model acts as tech-lead orchestrator, delegating deep reasoning to an Opus subagent, mechanical work to a Sonnet subagent, and fresh-perspective problems to Codex as a blind peer. Saves top-tier model usage without losing quality. |
+| [content-to-skill](./skills/engineering/content-to-skill/SKILL.md) | Convert any piece of content — an article, notes, a prompt, a workflow, a debugging session — into a reusable, scoped, testable Agent Skill, including judging whether it's worth skill-ifying at all and choosing between a Skill, prompt, checklist, or Agent. |
 
-*More categories (PM, marketing, productivity) will appear as we publish more skills.*
+### Content
+
+| Skill | Description |
+|-------|-------------|
+| [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | Automate short-form video editing by having an AI coding agent clone a reference viral video's shot structure onto your own footage — FFmpeg shot detection, visual clip matching, TTS voiceover + subtitles, output as an editable CapCut (剪映) draft. |
+
+### Marketing
+
+| Skill | Description |
+|-------|-------------|
+| [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | Stand up a role-based "AI operations team" for social-media content — strategy, research, planning, copywriting, traffic + sales design, task tracking — so the AI does the operating work and the human only reviews and approves. |
+
+*More categories (PM, productivity) will appear as we publish more skills.*
 
 ## License
 

@@ -54,8 +54,21 @@ skills/
 | Skill | 说明 |
 |-------|------|
 | [multi-model-orchestrator](./skills/engineering/multi-model-orchestrator/SKILL.md) | 把复杂开发任务交给多模型团队执行：主模型担任 tech-lead 指挥者，深度推理派给 Opus subagent、机械性工作派给 Sonnet subagent、需要不同视角的问题交给 Codex 盲测同侪。省下顶级模型用量，质量不打折。 |
+| [content-to-skill](./skills/engineering/content-to-skill/SKILL.md) | 把任何内容——文章、笔记、prompt、工作流程、调试过程——转成一个可复用、范围明确、可测试的 Agent Skill，并协助判断值不值得做成 skill，以及该用 Skill、prompt、checklist 还是 Agent。 |
 
-*之后发布更多 skills 时，会陆续增加 PM、营销、生产力等分类。*
+### Content（内容）
+
+| Skill | 说明 |
+|-------|------|
+| [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | 让 AI coding agent 把参考爆款视频的分镜结构套用到你自己的素材上，自动化短视频剪辑：FFmpeg 检测镜头切点、视觉比对素材、生成 TTS 旁白＋字幕，输出成可再编辑的剪映草稿。 |
+
+### Marketing（营销）
+
+| Skill | 说明 |
+|-------|------|
+| [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | 为社群内容建立角色分工的「AI 运营团队」——策略、研究、企划、文案、流量＋销售设计、任务追踪——让 AI 做运营的活，人只负责审核与拍板。 |
+
+*之后发布更多 skills 时，会陆续增加 PM、生产力等分类。*
 
 ## 许可证
 

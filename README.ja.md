@@ -54,8 +54,21 @@ skills/
 | Skill | 説明 |
 |-------|------|
 | [multi-model-orchestrator](./skills/engineering/multi-model-orchestrator/SKILL.md) | 複雑な開発タスクをマルチモデルのチームで実行：メインモデルがテックリードとして指揮を執り、深い推論は Opus subagent へ、機械的な作業は Sonnet subagent へ、別視点が必要な問題は Codex にブラインドで委任。トップティアモデルの使用量を節約しつつ品質を維持します。 |
+| [content-to-skill](./skills/engineering/content-to-skill/SKILL.md) | あらゆるコンテンツ——記事、メモ、プロンプト、ワークフロー、デバッグ記録——を再利用可能でスコープが明確、かつテスト可能な Agent Skill に変換。skill 化する価値があるかの判断や、Skill・プロンプト・チェックリスト・Agent のどれを使うべきかの選択も支援します。 |
 
-*今後 skills の公開に合わせて、PM・マーケティング・生産性などのカテゴリを追加していきます。*
+### Content（コンテンツ）
+
+| Skill | 説明 |
+|-------|------|
+| [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | AI コーディングエージェントが参考にしたバズ動画のショット構成を自分の素材へ適用し、短尺動画編集を自動化：FFmpeg でカット検出、素材をビジュアルマッチング、TTS ナレーション＋字幕を生成し、再編集可能な CapCut（剪映）ドラフトとして出力します。 |
+
+### Marketing（マーケティング）
+
+| Skill | 説明 |
+|-------|------|
+| [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | ソーシャルメディア運用のために役割分担した「AI 運用チーム」を構築——戦略・リサーチ・企画・コピーライティング・集客＋販売設計・タスク管理——を AI が担い、人間はレビューと承認だけを行います。 |
+
+*今後 skills の公開に合わせて、PM・生産性などのカテゴリを追加していきます。*
 
 ## ライセンス
 

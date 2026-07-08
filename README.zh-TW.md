@@ -54,8 +54,21 @@ skills/
 | Skill | 說明 |
 |-------|------|
 | [multi-model-orchestrator](./skills/engineering/multi-model-orchestrator/SKILL.md) | 把複雜開發任務交給多模型團隊執行：主模型擔任 tech-lead 指揮者，深度推理派給 Opus subagent、機械性工作派給 Sonnet subagent、需要不同視角的問題交給 Codex 盲測同儕。省下頂級模型用量，品質不打折。 |
+| [content-to-skill](./skills/engineering/content-to-skill/SKILL.md) | 把任何內容——文章、筆記、prompt、工作流程、除錯過程——轉成一個可重複使用、範圍明確、可測試的 Agent Skill，並協助判斷值不值得做成 skill，以及該用 Skill、prompt、checklist 還是 Agent。 |
 
-*之後發布更多 skills 時，會陸續增加 PM、行銷、生產力等分類。*
+### Content（內容）
+
+| Skill | 說明 |
+|-------|------|
+| [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | 讓 AI coding agent 把參考爆款影片的分鏡結構套用到你自己的素材上，自動化短影音剪輯：FFmpeg 偵測鏡頭切點、視覺比對素材、生成 TTS 旁白＋字幕，輸出成可再編輯的剪映草稿。 |
+
+### Marketing（行銷）
+
+| Skill | 說明 |
+|-------|------|
+| [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | 為社群內容建立角色分工的「AI 運營團隊」——策略、研究、企劃、文案、流量＋銷售設計、任務追蹤——讓 AI 做運營的活，人只負責審核與拍板。 |
+
+*之後發布更多 skills 時，會陸續增加 PM、生產力等分類。*
 
 ## 授權
 
