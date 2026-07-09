@@ -54,6 +54,7 @@ skills/
 | Skill | 說明 |
 |-------|------|
 | [multi-model-orchestrator](./skills/engineering/multi-model-orchestrator/SKILL.md) | 把複雜開發任務交給多模型團隊執行：主模型擔任 tech-lead 指揮者，深度推理派給 Opus subagent、機械性工作派給 Sonnet subagent、需要不同視角的問題交給 Codex 盲測同儕。省下頂級模型用量，品質不打折。 |
+| [fable-codex-setup](./skills/engineering/fable-codex-setup/SKILL.md) | 一次調用就把全新 Claude Code 專案初始化成「Fable 5 指揮官 × Codex 執行者」架構：檢查 OpenAI Codex plugin、將主模型設為 Fable 5、建立 deep-reasoner（Opus）、fast-worker（Sonnet）、codex-executor 三個 sub-agent，並把協作規則寫進 CLAUDE.md。是 multi-model-orchestrator 的配套初始化 skill。 |
 | [content-to-skill](./skills/engineering/content-to-skill/SKILL.md) | 把任何內容——文章、筆記、prompt、工作流程、除錯過程——轉成一個可重複使用、範圍明確、可測試的 Agent Skill，並協助判斷值不值得做成 skill，以及該用 Skill、prompt、checklist 還是 Agent。 |
 
 ### Content（內容）

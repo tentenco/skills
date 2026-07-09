@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fable-codex-setup 使用說明 — Fable 5 指揮官 × Codex 執行者</title>
+<style>
+  :root {
+    --bg: #faf9f5;
+    --fg: #1a1a18;
+    --muted: #6b6a63;
+    --card: #ffffff;
+    --border: #e4e2d9;
+    --accent: #b8543a;
+    --accent-soft: #fdf0ec;
+    --code-bg: #f0efe8;
+    --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --fg: #e8e6df; --muted: #9a988f;
+      --card: #1f1f24; --border: #33333a;
+      --accent: #e0785c; --accent-soft: #2a211e; --code-bg: #26262c;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.85; padding: 3rem 1.25rem 5rem;
+  }
+  main { max-width: 780px; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.4; margin-bottom: .5rem; }
+  .subtitle { color: var(--muted); margin-bottom: 2.5rem; }
+  h2 {
+    font-size: 1.35rem; margin: 3rem 0 1rem;
+    padding-bottom: .4rem; border-bottom: 2px solid var(--border);
+  }
+  h2 .no { color: var(--accent); font-family: var(--mono); font-size: 1rem; margin-right: .5rem; }
+  h3 { font-size: 1.05rem; margin: 1.75rem 0 .5rem; }
+  p { margin: .75rem 0; }
+  ul, ol { padding-left: 1.5rem; margin: .75rem 0; }
+  li { margin: .35rem 0; }
+  strong { color: var(--accent); }
+  code {
+    font-family: var(--mono); font-size: .85em;
+    background: var(--code-bg); padding: .15em .45em; border-radius: 4px;
+  }
+  pre {
+    background: var(--code-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto;
+    margin: 1rem 0; line-height: 1.6;
+  }
+  pre code { background: none; padding: 0; font-size: .82rem; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .92rem;
+  }
+  th, td { border: 1px solid var(--border); padding: .55rem .8rem; text-align: left; vertical-align: top; }
+  th { background: var(--code-bg); }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1rem 0;
+  }
+  .tip {
+    background: var(--accent-soft); border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0; padding: .9rem 1.25rem; margin: 1rem 0; font-size: .95rem;
+  }
+  /* 架構圖 */
+  .arch { text-align: center; margin: 1.5rem 0; }
+  .arch .node {
+    display: inline-block; background: var(--card); border: 2px solid var(--border);
+    border-radius: 10px; padding: .6rem 1.2rem; margin: .4rem; font-size: .9rem;
+  }
+  .arch .node b { display: block; font-size: 1rem; }
+  .arch .node small { color: var(--muted); }
+  .arch .brain { border-color: var(--accent); background: var(--accent-soft); }
+  .arch .arrow { color: var(--muted); font-size: 1.3rem; margin: .1rem 0; }
+  footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .85rem;
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+
+<h1>fable-codex-setup<br>Fable 5 指揮官 × Codex 執行者 — 專案初始化 Skill 使用說明</h1>
+<p class="subtitle">一個可重複使用的 Agent Skill：一句話就把全新的 Claude Code 專案設定成「Fable 5 當大腦、Codex 與便宜模型當手腳」的省 Token 協作架構。</p>
+
+<h2><span class="no">01</span>這個架構在解決什麼問題？</h2>
+<p>本 Skill 的概念來自 <a href="https://x.com/diegocabezas01">@diegocabezas01</a> 分享的工作流：<strong>Fable 5 很聰明但很貴</strong>，如果讓它自己讀大檔案、寫測試、跑重複性修改，昂貴的 Token 會被「粗工」消耗掉。正確的用法是把 Fable 5 當<strong>指揮官（Orchestrator）</strong>——只負責規劃、拆解任務、整合結果——然後把實際執行分派給更便宜的模型與 Codex。</p>
+<p>原文的核心分工是：</p>
+<ul>
+  <li><strong>Fable 5（max reasoning）＝指揮官</strong>：規劃、拆解、綜合。</li>
+  <li><strong>Opus ＝ 深度推理 Sub-agent</strong>：架構設計、複雜除錯、演算法設計。</li>
+  <li><strong>Sonnet ＝ 機械工作 Sub-agent</strong>：樣板程式碼、測試、格式化、簡單修改。</li>
+  <li><strong>Codex ＝ 平起平坐的資深工程師</strong>：提供「不同視角」的第二意見與大量實作。重點：把它當<strong>同儕（peer）</strong>，不是 reviewer。</li>
+</ul>
+<div class="tip">原文還有一個高段技巧：遇到<strong>高風險決策</strong>時，讓 Opus 和 Codex <strong>平行解同一題、互相看不到對方答案</strong>，最後由 Fable 綜合兩者最好的部分。這就是「盲測合議」，能避免兩個模型互相帶偏。</div>
+
+<h2><span class="no">02</span>架構總覽</h2>
+<div class="arch">
+  <div class="node brain"><b>Fable 5</b><small>指揮官：規劃・拆解・整合（/effort max）</small></div>
+  <div class="arrow">↓ 分派任務 ↓</div>
+  <div>
+    <div class="node"><b>deep-reasoner</b><small>Opus・深度推理</small></div>
+    <div class="node"><b>fast-worker</b><small>Sonnet・機械執行</small></div>
+    <div class="node"><b>codex-executor</b><small>Haiku 包裝 → Codex CLI</small></div>
+  </div>
+  <div class="arrow">↑ 只回傳「精簡結論」 ↑</div>
+</div>
+<p>省 Token 的原理有兩層：</p>
+<ol>
+  <li><strong>分工</strong>：貴的模型只做值得貴的事，粗工交給 Sonnet／Codex。</li>
+  <li><strong>隔離</strong>：Sub-agent 的探索過程（讀檔、試錯、完整 log）都留在它自己的 context 裡，<strong>只有最終結論回到 Fable 的對話中</strong>。Fable 的 context 保持精簡，等於直接省掉最貴的那部分消耗。</li>
+</ol>
+<p>其中 <code>codex-executor</code> 是特別為「讓 Codex 去執行」設計的：它用最便宜的 <strong>Haiku</strong> 當薄薄的調度層，透過 <code>codex exec --full-auto</code> 把任務整包丟給 Codex CLI 跑，跑完只驗證結果（<code>git diff</code>＋測試），回報摘要。Claude 這邊幾乎不花 Token。</p>
+
+<h2><span class="no">03</span>前置需求</h2>
+<table>
+  <tr><th>項目</th><th>安裝方式</th></tr>
+  <tr><td>Codex CLI</td><td><code>npm i -g @openai/codex</code>，然後 <code>codex login</code>（需 ChatGPT Plus/Pro 或 OpenAI API Key）</td></tr>
+  <tr><td>Codex 官方 Plugin<br>（建議安裝）</td><td>在 Claude Code 中依序輸入：<pre><code>/plugin marketplace add openai/codex-plugin-cc
+/plugin install codex@openai-codex
+/codex:setup</code></pre></td></tr>
+  <tr><td>Fable 5 模型權限</td><td>你的 Claude 方案需可使用 Fable 5</td></tr>
+</table>
+<div class="tip">Plugin 的斜線指令是<strong>互動式</strong>的，必須由你本人在 Claude Code 輸入，Skill 無法代跑——執行 Skill 時它會把指令印出來提醒你。就算暫時不裝 Plugin，<code>codex-executor</code> 靠 Codex CLI 也能運作。</div>
+
+<h2><span class="no">04</span>Skill 檔案結構</h2>
+<pre><code>~/.claude/skills/fable-codex-setup/     ← 裝在個人目錄，所有專案都能調用
+├── SKILL.md                            ← Skill 主體（五步驟設定流程）
+├── PROMPTS.md                          ← 驅動任務用的 Prompt 範本
+└── templates/
+    ├── agents/
+    │   ├── deep-reasoner.md            ← Opus 深度推理 Sub-agent
+    │   ├── fast-worker.md              ← Sonnet 機械執行 Sub-agent
+    │   └── codex-executor.md           ← Codex 調度 Sub-agent（省 Token 主力）
+    └── CLAUDE-orchestration.md         ← 要寫進專案 CLAUDE.md 的協作規則</code></pre>
+
+<h2><span class="no">05</span>如何使用</h2>
+<h3>步驟一：在新專案裡調用 Skill</h3>
+<p>打開任何一個新專案，對 Claude 說（或直接輸入 Skill 名稱）：</p>
+<pre><code>用 fable-codex-setup 把這個專案設定好</code></pre>
+<h3>步驟二：Skill 會自動完成</h3>
+<ol>
+  <li><strong>環境檢查</strong>：確認 Codex CLI 與 Plugin 是否就緒，缺什麼就列出安裝指令給你。</li>
+  <li><strong>設定大腦</strong>：在專案 <code>.claude/settings.json</code> 寫入 <code>"model": "claude-fable-5"</code>。</li>
+  <li><strong>建立三個 Sub-agent</strong>：把範本複製到專案的 <code>.claude/agents/</code>（既有檔案不會被覆蓋）。</li>
+  <li><strong>寫入 CLAUDE.md</strong>：加入「Orchestration workflow」段落，讓 Fable 每個 session 都自動知道怎麼分派工作。</li>
+  <li><strong>回報結果</strong>：列出建立的檔案、剩下的手動步驟，並印出開工用的 Prompt。</li>
+</ol>
+<h3>步驟三：你手動完成兩件事</h3>
+<pre><code>/model   → 選 Fable 5
+/effort  → 選 max</code></pre>
+
+<h2><span class="no">06</span>用 Prompt 驅動任務</h2>
+<p>設定完成後，用「技術主管交辦」的口吻開工（完整範本在 <code>PROMPTS.md</code>）：</p>
+<h3>日常開工（Tech-lead kickoff）</h3>
+<pre><code>Goal: [你要的結果]
+Context: [相關檔案、限制條件]
+
+You're the lead. Delegate reasoning to deep-reasoner, grunt work to
+fast-worker, fresh-perspective problems to Codex (codex-executor).
+Show me your plan first, then execute.</code></pre>
+<h3>高風險決策（Opus × Codex 盲測合議）</h3>
+<pre><code>High-stakes decision: [要決定的事]
+
+Task deep-reasoner and codex-executor on this same problem in parallel.
+Do not show either one the other's answer. Then synthesize the best of
+both and tell me where they disagreed.</code></pre>
+<h3>整包丟給 Codex（最省 Token）</h3>
+<pre><code>Hand this entirely to codex-executor: [任務描述＋明確驗收條件，
+例如 done when `npm test` passes]. Only verify the result and
+report back — don't implement it yourself.</code></pre>
+<div class="tip"><strong>關鍵心法：</strong>永遠給出「可驗證的完成條件」（done when X passes），而不是「弄到能動」。條件夠明確，Sub-agent 才能自己迭代到通過，不用一直回來問你。另外，Codex 和 Claude 之間<strong>不共享任何 context</strong>，交給 Codex 的任務描述必須完全自給自足。</div>
+
+<h2><span class="no">07</span>常見問題</h2>
+<div class="card">
+  <h3>Q：為什麼不直接讓 Fable 5 全部自己做？</h3>
+  <p>A：能做，但貴。Fable 的價值在判斷力，不在打字速度。讓它讀三千行檔案、寫 20 個測試樣板，跟請首席架構師來搬磚一樣浪費。分派出去之後，粗工的 Token 由便宜模型（甚至 OpenAI 那邊的額度）吸收。</p>
+</div>
+<div class="card">
+  <h3>Q：Codex 和 deep-reasoner 什麼時候用哪個？</h3>
+  <p>A：<strong>deep-reasoner（Opus）</strong>適合需要深入理解「這個 codebase」的推理；<strong>Codex</strong> 的價值是「不同基因的視角」——它是另一家的模型，卡關、需要第二意見、或懷疑自己想法有盲點時特別有用。真正重大的決策就兩個都問（盲測合議）。</p>
+</div>
+<div class="card">
+  <h3>Q：Skill 會不會弄壞我既有的設定？</h3>
+  <p>A：不會。Skill 的守則是「外科手術式修改」：既有的 agent 檔案不覆蓋、settings.json 只合併不清空、CLAUDE.md 已有 Orchestration 段落就跳過，任何衝突都會先回報讓你決定。</p>
+</div>
+<div class="card">
+  <h3>Q：一定要裝 Codex Plugin 嗎？</h3>
+  <p>A：不一定。<code>codex-executor</code> 直接呼叫 Codex CLI，沒有 Plugin 也能跑。但 Plugin 提供 <code>/codex:rescue --background</code> 等整合功能，體驗更好，建議安裝。</p>
+</div>
+
+<footer>
+  <p>架構概念：<a href="https://x.com/diegocabezas01">@diegocabezas01</a> ｜ Skill：fable-codex-setup ｜ 文件產生日期：2026-07-09</p>
+</footer>
+
+</main>
+</body>
+</html>

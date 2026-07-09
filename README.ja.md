@@ -54,6 +54,7 @@ skills/
 | Skill | 説明 |
 |-------|------|
 | [multi-model-orchestrator](./skills/engineering/multi-model-orchestrator/SKILL.md) | 複雑な開発タスクをマルチモデルのチームで実行：メインモデルがテックリードとして指揮を執り、深い推論は Opus subagent へ、機械的な作業は Sonnet subagent へ、別視点が必要な問題は Codex にブラインドで委任。トップティアモデルの使用量を節約しつつ品質を維持します。 |
+| [fable-codex-setup](./skills/engineering/fable-codex-setup/SKILL.md) | 新しい Claude Code プロジェクトを一回の呼び出しで「Fable 5 オーケストレーター × Codex 実行役」構成にブートストラップ：OpenAI Codex プラグインの確認、メインモデルを Fable 5 に設定、deep-reasoner（Opus）・fast-worker（Sonnet）・codex-executor の 3 つの subagent を作成し、CLAUDE.md にオーケストレーションのワークフローを書き込みます。multi-model-orchestrator のセットアップ用コンパニオン skill。 |
 | [content-to-skill](./skills/engineering/content-to-skill/SKILL.md) | あらゆるコンテンツ——記事、メモ、プロンプト、ワークフロー、デバッグ記録——を再利用可能でスコープが明確、かつテスト可能な Agent Skill に変換。skill 化する価値があるかの判断や、Skill・プロンプト・チェックリスト・Agent のどれを使うべきかの選択も支援します。 |
 
 ### Content（コンテンツ）

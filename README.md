@@ -54,6 +54,7 @@ Every skill is self-contained: one folder, everything it needs, plus a human-rea
 | Skill | Description |
 |-------|-------------|
 | [multi-model-orchestrator](./skills/engineering/multi-model-orchestrator/SKILL.md) | Run complex dev tasks as a multi-model team: the main model acts as tech-lead orchestrator, delegating deep reasoning to an Opus subagent, mechanical work to a Sonnet subagent, and fresh-perspective problems to Codex as a blind peer. Saves top-tier model usage without losing quality. |
+| [fable-codex-setup](./skills/engineering/fable-codex-setup/SKILL.md) | Bootstrap a brand-new Claude Code project into the "Fable 5 orchestrator × Codex executor" architecture in one invocation: verifies the OpenAI Codex plugin, pins Fable 5 as the main model, installs deep-reasoner (Opus), fast-worker (Sonnet), and codex-executor sub-agents, and writes the orchestration workflow into CLAUDE.md. Companion setup skill for multi-model-orchestrator. |
 | [content-to-skill](./skills/engineering/content-to-skill/SKILL.md) | Convert any piece of content — an article, notes, a prompt, a workflow, a debugging session — into a reusable, scoped, testable Agent Skill, including judging whether it's worth skill-ifying at all and choosing between a Skill, prompt, checklist, or Agent. |
 
 ### Content
