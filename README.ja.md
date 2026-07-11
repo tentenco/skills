@@ -68,6 +68,7 @@ skills/
 | Skill | 説明 |
 |-------|------|
 | [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | ソーシャルメディア運用のために役割分担した「AI 運用チーム」を構築——戦略・リサーチ・企画・コピーライティング・集客＋販売設計・タスク管理——を AI が担い、人間はレビューと承認だけを行います。 |
+| [tenten-link-building](./skills/marketing/tenten-link-building/SKILL.md) | SEO 内部リンクの自動化：記事執筆時にオンライン MCP コンテンツインデックス（タイトル・キーワード・GA4 トラフィック加重ランキング）を照会し、厳格なポリシーに従って同一言語の内部リンクを 3–5 件挿入、公開後は新 URL を検索エンジンへ送信します。Tenten のインデックスに接続——自社のコンテンツ DB にも応用可能。 |
 
 *今後 skills の公開に合わせて、PM・生産性などのカテゴリを追加していきます。*
 

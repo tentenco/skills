@@ -68,6 +68,7 @@ skills/
 | Skill | 說明 |
 |-------|------|
 | [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | 為社群內容建立角色分工的「AI 運營團隊」——策略、研究、企劃、文案、流量＋銷售設計、任務追蹤——讓 AI 做運營的活，人只負責審核與拍板。 |
+| [tenten-link-building](./skills/marketing/tenten-link-building/SKILL.md) | SEO 內部連結自動化：寫文章時查詢線上 MCP 內容索引（標題、關鍵字、GA4 流量權重排序），依嚴格政策插入 3–5 個同語言內部連結，發佈後把新 URL 回填提交搜尋引擎。連接 Tenten 的索引——可改接你自己的內容資料庫。 |
 
 *之後發布更多 skills 時，會陸續增加 PM、生產力等分類。*
 

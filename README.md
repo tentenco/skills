@@ -68,6 +68,7 @@ Every skill is self-contained: one folder, everything it needs, plus a human-rea
 | Skill | Description |
 |-------|-------------|
 | [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | Stand up a role-based "AI operations team" for social-media content — strategy, research, planning, copywriting, traffic + sales design, task tracking — so the AI does the operating work and the human only reviews and approves. |
+| [tenten-link-building](./skills/marketing/tenten-link-building/SKILL.md) | Automated internal link building for SEO: query a live MCP content index (titles, keywords, GA4 traffic-weighted ranking) while writing articles, insert 3–5 same-language internal links under a strict policy, then submit the published URL back for search-engine indexing. Connects to Tenten's index — adapt the endpoint to your own content database. |
 
 *More categories (PM, productivity) will appear as we publish more skills.*
 
