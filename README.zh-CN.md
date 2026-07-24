@@ -69,6 +69,7 @@ skills/
 |-------|------|
 | [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | 为社群内容建立角色分工的「AI 运营团队」——策略、研究、企划、文案、流量＋销售设计、任务追踪——让 AI 做运营的活，人只负责审核与拍板。 |
 | [tenten-link-building](./skills/marketing/tenten-link-building/SKILL.md) | SEO 内部链接自动化：写文章时查询在线 MCP 内容索引（标题、关键词、GA4 流量权重排序），按严格政策插入 3–5 个同语言内部链接，发布后把新 URL 回填提交搜索引擎。连接 Tenten 的索引——可改接你自己的内容数据库。 |
+| [go-to-market-audit](./skills/marketing/go-to-market-audit/SKILL.md) | 把原始的产品／变现想法炼成经过拷问的 GTM 计划:先对既有资产做证据侦察,再走 12 站决策树拷问(战略角色、ICP、滩头堡市场、定价、构建顺序、止损线等),产出创始文件 GTM-STRATEGY.md 与精致的自包含 HTML review(含待签核清单)。Express 模式一次跑完并记录所有决策;交互模式逐题拷问。 |
 
 *之后发布更多 skills 时，会陆续增加 PM、生产力等分类。*
 

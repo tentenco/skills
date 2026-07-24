@@ -69,6 +69,7 @@ Every skill is self-contained: one folder, everything it needs, plus a human-rea
 |-------|-------------|
 | [sns-ops-ai-team](./skills/marketing/sns-ops-ai-team/SKILL.md) | Stand up a role-based "AI operations team" for social-media content — strategy, research, planning, copywriting, traffic + sales design, task tracking — so the AI does the operating work and the human only reviews and approves. |
 | [tenten-link-building](./skills/marketing/tenten-link-building/SKILL.md) | Automated internal link building for SEO: query a live MCP content index (titles, keywords, GA4 traffic-weighted ranking) while writing articles, insert 3–5 same-language internal links under a strict policy, then submit the published URL back for search-engine indexing. Connects to Tenten's index — adapt the endpoint to your own content database. |
+| [go-to-market-audit](./skills/marketing/go-to-market-audit/SKILL.md) | Turn a raw product or monetization idea into a battle-tested go-to-market plan: evidence reconnaissance over existing assets, a 12-station decision-tree grilling (strategic role, ICP, beachhead market, pricing, build sequencing, kill criteria and more), then a founding GTM-STRATEGY.md plus a polished self-contained HTML review with a sign-off checklist. Express mode decides and logs in one pass; interactive mode grills one question at a time. |
 
 *More categories (PM, productivity) will appear as we publish more skills.*
 
