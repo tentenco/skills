@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{Target Company} — Competitive Landscape — Tenten</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+  --primary:#17171c; --black:#000000; --ink:#212121;
+  --green:#003c33; --green-line:#1f5249;
+  --canvas:#ffffff; --stone:#eeece7; --pale-green:#edfce9;
+  --hairline:#d9d9dd; --card-border:#f2f2f2;
+  --muted:#93939f; --slate:#75758a; --body-muted:#616161;
+  --action:#1863dc; --focus:#4c6ee6;
+  --coral:#ff7759; --coral-soft:#ffad9b; --on-dark:#ffffff;
+  --display:'Space Grotesk','Noto Sans TC',ui-sans-serif,system-ui,sans-serif;
+  --sans:'Inter','Noto Sans TC',ui-sans-serif,system-ui,sans-serif;
+  --mono:'Space Mono','Noto Sans TC',ui-monospace,'SFMono-Regular',monospace;
+  --ease:cubic-bezier(0.2,0.7,0.2,1); --maxw:1160px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--canvas);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.label{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--muted);display:inline-block}
+h1,h2,h3{font-weight:400;letter-spacing:-0.01em}
+h2.h{font-family:var(--display);font-weight:500;font-synthesis:none;
+  font-size:clamp(28px,4.4vw,52px);line-height:1.08;letter-spacing:-0.015em}
+h3{font-family:var(--sans);font-size:21px;font-weight:600;line-height:1.3}
+p.lead{font-size:18.5px;line-height:1.65;color:var(--body-muted);max-width:64ch}
+p{max-width:72ch;margin:0 0 16px}
+a{color:var(--action)}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--card-border)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 32px;display:grid;
+  grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
+.brand .logo{height:22px;width:auto;display:block}
+.mid{font-family:var(--mono);font-size:12.5px;color:var(--slate);text-align:center}
+.end{text-align:right}
+.pill{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 22px;
+  background:var(--primary);color:#fff;border:none;border-radius:32px;
+  font-family:var(--sans);font-size:14px;font-weight:600;text-decoration:none;
+  cursor:pointer;transition:transform .2s var(--ease)}
+.pill:hover{transform:translateY(-1px)}
+.pill.sm{height:38px;padding:0 18px;font-size:13px}
+
+/* Hero */
+.hero{padding:78px 0 26px}
+.hero h1{font-family:var(--display);font-weight:500;font-synthesis:none;
+  font-size:clamp(40px,7.2vw,96px);line-height:1;letter-spacing:-0.025em;
+  margin:18px 0 0;max-width:18ch}
+.hero .lead{margin-top:26px}
+
+/* Sections — free zone, keep on-palette */
+section{padding:56px 0}
+section + section{border-top:1px solid var(--card-border)}
+section .label{margin-bottom:14px}
+section h2.h{margin-bottom:22px}
+
+/* Comparison table */
+.tbl-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{font-family:var(--mono);font-size:11.5px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+tbody td{padding:13px 14px;border-bottom:1px solid var(--card-border);
+  vertical-align:top;line-height:1.5}
+tbody tr:hover{background:var(--stone)}
+tr.target-row, tr.target-row:hover{background:var(--pale-green)}
+td.cap{font-family:var(--mono);font-size:13px;white-space:nowrap}
+td.co a{color:var(--ink);font-weight:600;text-decoration:none;
+  border-bottom:1px solid var(--hairline)}
+td.co a:hover{border-color:var(--ink)}
+.badge{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  background:var(--green);color:#fff;border-radius:10px;padding:2px 8px;
+  margin-left:8px;vertical-align:middle}
+
+/* Insight callouts (optional helpers, on-palette) */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:8px}
+.card{border:1px solid var(--card-border);border-radius:14px;padding:22px}
+.card .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+.card h3{margin-bottom:6px}
+.rec{border-left:3px solid var(--coral);padding:4px 0 4px 18px;margin:12px 0}
+
+/* Footer */
+footer{background:var(--primary);color:#c6c6cf;padding:56px 0 42px}
+.foot-brand{padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-brand .logo-inv{height:26px;width:auto;display:block;
+  filter:brightness(0) invert(1)}
+.foot-tag{margin-top:16px;max-width:48ch;color:#b9b9c2;font-size:15px;line-height:1.6}
+.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;padding-top:30px}
+.foot-cols h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:12px}
+.foot-cols a,.foot-cols p{display:block;color:#9a9aa6;font-size:14px;
+  text-decoration:none;margin:7px 0;line-height:1.6;max-width:none}
+.foot-cols a:hover{color:#fff}
+
+@media (max-width:720px){
+  .foot-cols{grid-template-columns:1fr}
+  .nav-in{grid-template-columns:auto 1fr;gap:10px}
+  .mid{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <span class="brand"><img class="logo" src="https://cdn.prod.website-files.com/664ac0da22e63b78c9005ce5/664ac2634d948a1fe260aaec_tenten_logo.png" alt="Tenten"></span>
+    <span class="mid">{Target Company} — Competitive Landscape · Tenten</span>
+    <span class="end"><a class="pill sm" href="https://go.tenten.co/meet">Book a call</a></span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="label">Competitive landscape · {Industry frame} · {Month Year}</span>
+    <h1>{Six words or fewer on the market's core tension}</h1>
+    <p class="lead">{2–3 sentence summary of what this report found.}</p>
+  </div>
+</header>
+
+<!-- ============================================================
+     FREE ZONE — design the sections below however reads best,
+     but every element must use the CSS variables and classes above.
+     Recommended order:
+       1) <section> Comparison table  (.tbl-scroll > table, target row = class="target-row")
+       2) <section> Insights          (market thesis, giants, dark horses, direct rivals, implications)
+       3) <section> Methodology note  (industry frame, # of rounds, data as-of date, limits)
+     Use .wrap containers, .label eyebrows, h2.h section titles.
+     ============================================================ -->
+
+<section>
+  <div class="wrap">
+    <span class="label">The roster · {N} companies</span>
+    <h2 class="h">Who competes, by value</h2>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34px">#</th>
+            <th>Company</th>
+            <th>Description</th>
+            <th>Country</th>
+            <th>Market cap / valuation</th>
+            <th>Unique value proposition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example rows — replace with real, sorted data (desc by value). -->
+          <tr>
+            <td>1</td>
+            <td class="co"><a href="https://example.com" target="_blank" rel="noopener">Example Corp</a></td>
+            <td>One-to-two sentence description of what they sell and to whom.</td>
+            <td>USA</td>
+            <td class="cap">$12.4B (mkt cap, Jul 2026)</td>
+            <td>The sharpest one-line reason customers choose them.</td>
+          </tr>
+          <tr class="target-row">
+            <td>7</td>
+            <td class="co"><a href="https://target.com" target="_blank" rel="noopener">Target Company</a><span class="badge">YOU</span></td>
+            <td>What the target sells and its position.</td>
+            <td>Taiwan</td>
+            <td class="cap">$2.1B (2025 Series D)</td>
+            <td>The target's UVP.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="label">Insights · Branding / Marketing / Sales</span>
+    <h2 class="h">What the landscape is telling us</h2>
+    <!-- Market thesis, The giants, The dark horses, Direct rivals, Strategic implications, Recommended moves -->
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="label">Methodology</span>
+    <p>Industry frame: {…}. Compiled from {N} search rounds. Data as of {Month YYYY}. Private-company valuations are the latest disclosed figures and may be stale; this roster is the most complete surfaced by the search, not a claim of every competitor in the market.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <img class="logo-inv" src="https://cdn.prod.website-files.com/664ac0da22e63b78c9005ce5/664ac2634d948a1fe260aaec_tenten_logo.png" alt="Tenten">
+      <p class="foot-tag">Asia's AI-native product studio. Headless websites, rebrands, and growth for B2B and technology brands.</p>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <h4>Get in touch</h4>
+        <a href="https://go.tenten.co/meet">Book a call</a>
+        <a href="mailto:erik@tenten.co">erik@tenten.co</a>
+        <a href="https://tenten.co">tenten.co</a>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="https://tenten.co">Tenten</a>
+        <a href="https://tenten.co/careers">Careers</a>
+        <a href="https://tenten.co/contact">Our location</a>
+      </div>
+      <div>
+        <h4>This document</h4>
+        <p>{Target Company} × Tenten</p>
+        <p>Competitive landscape report</p>
+        <p>{Month DD, YYYY} · Data as of {Month YYYY}</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
