@@ -62,6 +62,7 @@ skills/
 | Skill | 説明 |
 |-------|------|
 | [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | AI コーディングエージェントが参考にしたバズ動画のショット構成を自分の素材へ適用し、短尺動画編集を自動化：FFmpeg でカット検出、素材をビジュアルマッチング、TTS ナレーション＋字幕を生成し、再編集可能な CapCut（剪映）ドラフトとして出力します。 |
+| [kura-yang-content-pipeline](./skills/content/kura-yang-content-pipeline/SKILL.md) | Kura Yang／MOT TIMES を参考にした編集トーンで、デザイン、建築、ホテル、製品、人物に関する掲載可能な繁体字中国語の長文記事を作成し、リズム、意味密度、意図的な不完全さを組み込みます。 |
 
 ### Marketing（マーケティング）
 

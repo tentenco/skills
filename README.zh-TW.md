@@ -62,6 +62,7 @@ skills/
 | Skill | 說明 |
 |-------|------|
 | [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | 讓 AI coding agent 把參考爆款影片的分鏡結構套用到你自己的素材上，自動化短影音剪輯：FFmpeg 偵測鏡頭切點、視覺比對素材、生成 TTS 旁白＋字幕，輸出成可再編輯的剪映草稿。 |
+| [kura-yang-content-pipeline](./skills/content/kura-yang-content-pipeline/SKILL.md) | 以 Kura Yang／MOT TIMES 式編輯語氣撰寫可直接刊登的繁體中文設計、建築、旅宿、產品與人物深度長文，並內建節奏變化、語意密度與控制性不完美三項寫作指紋。 |
 
 ### Marketing（行銷）
 
