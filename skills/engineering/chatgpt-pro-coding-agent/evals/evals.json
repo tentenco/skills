@@ -1,0 +1,23 @@
+{
+  "skill_name": "chatgpt-pro-coding-agent",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我已登入 ChatGPT Pro。請你用雙代理方式讓 Pro 幫忙重構這個 Next.js 專案，但不要 push 或 deploy；最後你自己跑測試驗收。",
+      "expected_output": "Chooses the scoped MCP lane, establishes repository authority and permissions, delegates with measurable criteria, then independently verifies without pushing or deploying.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "這個 ChatGPT surface 不能裝 MCP，幫我安全打包必要原始碼給 Pro 分析，任何 token 都不能進 ZIP。",
+      "expected_output": "Chooses the scanned bundle fallback, records baseline and SHA-256, excludes secrets and state, and keeps Codex responsible for local verification.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "用 ChatGPT Pro 做一個可玩的 Angry Birds 網頁版，滑鼠與觸控都能拉弓，完成後在本機瀏覽器測到真的能玩。",
+      "expected_output": "Creates a precise browser-game brief, uses Pro as a candidate implementer, and verifies rendering, aiming, launch physics, scoring/state, restart, responsive behavior, scrolling, and console errors locally.",
+      "files": []
+    }
+  ]
+}

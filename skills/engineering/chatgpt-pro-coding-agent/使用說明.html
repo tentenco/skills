@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPT Pro Coding Agent — 使用說明</title>
+<style>
+body{margin:0;background:#07111d;color:#edf5ff;font:16px/1.75 system-ui,-apple-system,"PingFang TC",sans-serif}main{max-width:880px;margin:auto;padding:48px 24px 80px}h1{font-size:2.4rem;margin:.2em 0}h2{margin-top:2.4em;color:#69eac4}p,li{color:#b9c9db}.hero{padding:28px;border:1px solid #29415b;border-radius:20px;background:linear-gradient(135deg,#102b42,#0b1726)}code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}pre{padding:18px;overflow:auto;border-radius:12px;background:#030914;color:#d8e9f8;border:1px solid #20354b}.warn{border-left:4px solid #ffcf70;padding-left:14px}.flow{display:grid;gap:12px}.step{padding:14px 16px;border:1px solid #29415b;border-radius:12px;background:#0d2033}</style>
+</head>
+<body><main>
+<section class="hero"><small>Agent Skill · Engineering</small><h1>ChatGPT Pro Coding Agent</h1><p>讓 Codex 擔任 repository owner、權限守門與獨立 QA，讓 ChatGPT Pro 透過 CodexPro MCP 完成深度工程工作，再由本機證據決定是否接受。</p></section>
+<h2>適合什麼情境</h2><p>大型新功能、複雜重構、瀏覽器介面與需要較長推理的工程任務。小型單檔修改通常直接由 Codex 完成更快。</p>
+<h2>標準流程</h2><div class="flow"><div class="step">1. Codex 讀取 AGENTS、README、Git 狀態與現有測試，寫出 acceptance criteria。</div><div class="step">2. 以單一 workspace 啟動 CodexPro，使用 ChatGPT Pro Web 的 MCP app。</div><div class="step">3. Camoufox 只操作 ChatGPT Web；Pro 讀檔、修改與執行允許的檢查。</div><div class="step">4. Codex 檢查 diff、跑測試、啟動應用程式並做瀏覽器 QA。</div><div class="step">5. 發現問題時送出精確錯誤，再由 Pro 做最小修正；最後只回報已驗證的事實。</div></div>
+<h2>可直接使用的 Prompt</h2><pre><code>請用 chatgpt-pro-coding-agent skill。
+目標：在目前 workspace 實作 [功能]。
+只修改：[明確路徑]。
+驗收：[可觀察行為、測試、viewport、無 console error]。
+不要 commit、push、deploy、migration 或讀取 secrets。
+完成後請呼叫 show_changes，回報實際修改檔案與檢查結果。</code></pre>
+<h2>安全邊界</h2><p class="warn">不要把 CodexPro connector URL、token、cookies 或登入資料寫入對話、檔案或截圖。若遇到登入、CAPTCHA、passkey 或 2FA，停下來讓使用者在瀏覽器中完成。</p><p>本 skill 不是 quota bypass、account sharing 或 model proxy。ChatGPT Pro 的輸出永遠只是候選實作；本機 runtime、測試與公開/API read-back 才是完成證據。</p>
+<h2>安裝</h2><pre><code>npx skills@latest add tentenco/skills
+# 或複製：skills/engineering/chatgpt-pro-coding-agent/</code></pre>
+</main></body></html>
