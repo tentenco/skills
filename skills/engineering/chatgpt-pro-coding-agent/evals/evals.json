@@ -18,6 +18,12 @@
       "prompt": "用 ChatGPT Pro 做一個可玩的 Angry Birds 網頁版，滑鼠與觸控都能拉弓，完成後在本機瀏覽器測到真的能玩。",
       "expected_output": "Creates a precise browser-game brief, uses Pro as a candidate implementer, and verifies rendering, aiming, launch physics, scoring/state, restart, responsive behavior, scrolling, and console errors locally.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "請用 Browser Agent 問 ChatGPT Pro 幫我寫 code，但所有對話都必須放在固定的 ChatGPT Project，不要散落在一般聊天列表。",
+      "expected_output": "Navigates through Camoufox to the exact configured Project home, verifies the project-specific composer before submission, avoids the global New chat action, and confirms the resulting conversation is listed under the Project before reporting success.",
+      "files": []
     }
   ]
 }

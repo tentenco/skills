@@ -16,6 +16,11 @@ proxy or quota bypass.
 Install this folder as a project or global skill. Then adapt those host
 commands to your own CodexPro/Camoufox wrapper before delegating work.
 
+Configure `camofox:open-project` and `camofox:project-status` to route only to
+the fixed Project declared in `SKILL.md`. They must verify the exact Project
+URL and project-specific composer before any prompt is sent. Do not fall back
+to ChatGPT's global New chat action when the Project cannot be verified.
+
 Never use Playwright, Chromium, Google Chrome for Testing, or agent-browser
 directly against `chatgpt.com`; use the upstream Camoufox bridge described in
 `references/camofox-chatgpt.md`.

@@ -1,12 +1,13 @@
 ---
 name: chatgpt-pro-coding-agent
 description: Use ChatGPT Pro Web as an external senior engineer while Codex remains the repository owner, integrator, and independent QA. Use this skill whenever the user asks Codex to operate ChatGPT Pro, use GPT Pro through the web UI for coding, build a two-agent workflow, connect a local repository to ChatGPT Developer Mode or CodexPro, reduce manual source uploads, delegate a complex engineering task to Pro, or package repository context for a web-only model. It also applies when the user asks to reproduce the Codex-directs-ChatGPT-Pro workflow from the Liu Xiaopai WeChat article or rebel0789/codexpro. This is not a quota bypass or account-sharing workflow.
-compatibility: macOS, Linux, or Windows with Node.js 20+, Python 3.12, uv, ChatGPT Apps/Developer Mode access, upstream daijro/Camoufox for ChatGPT Web automation, and an HTTPS route for web connections.
 ---
 
 # ChatGPT Pro Coding Agent
 
 Operate a two-agent engineering loop. Codex owns intent, repository truth, permissions, integration, and the final completion claim. ChatGPT Pro supplies deep analysis and candidate implementation through the user's own supported ChatGPT Web surface.
+
+Require Node.js 20+, Python 3.12, `uv`, ChatGPT Apps/Developer Mode access, upstream `daijro/camoufox`, and an HTTPS route for web connections.
 
 ## Choose the transport
 
@@ -35,6 +36,8 @@ Run the workspace preflight first:
 npm run preflight
 npm run pro:doctor
 npm run camofox:status
+npm run camofox:open-project
+npm run camofox:project-status
 ```
 
 Automate `chatgpt.com` only through the workspace's loopback bridge around upstream `daijro/camoufox`, as described in `references/camofox-chatgpt.md`. Do not launch Chromium, Google Chrome for Testing, agent-browser, or a standalone Playwright automation script for this origin. Camoufox is chosen for its Firefox-level fingerprint spoofing. Interact only through the bridge endpoints and current element refs.
@@ -55,9 +58,24 @@ The public connector URL contains a personal token. Let CodexPro copy it directl
 
 If login, account choice, passkey, CAPTCHA, verification code, or 2FA appears, pause and let the user complete it in the browser. Never request or handle those values in chat.
 
+## Keep every task inside the fixed ChatGPT Project
+
+Use only this Project as the ChatGPT Web workspace for this skill:
+
+- Project: `[EK] chatgpt-pro-coding-agent-0801`
+- URL: `https://chatgpt.com/g/g-p-6a6dc574a6848191962b3e91895353c1/project`
+
+Treat this routing rule as mandatory:
+
+1. Run `npm run camofox:open-project`; never start from the global ChatGPT home or its global New chat action.
+2. Fetch a fresh snapshot and require both the exact Project URL and the composer label `New chat in [EK] chatgpt-pro-coding-agent-0801` before sending a task.
+3. Start each independent workstream from that Project composer. Continue tightly coupled corrections in the same Project conversation.
+4. After the first response creates a `/c/...` conversation URL, return to the fixed Project home and confirm the conversation appears under its Chats tab before claiming it was filed correctly.
+5. If the Project is missing, renamed, inaccessible, or the project-specific composer cannot be verified, stop. Do not fall back to a global chat.
+
 ## Delegate to ChatGPT Pro
 
-Open a fresh ChatGPT Pro conversation for the task. Use one conversation per independent complex workstream; avoid splitting tightly coupled changes that need the same mental model.
+Open a fresh ChatGPT Pro conversation from the fixed Project composer. Use one conversation per independent complex workstream; avoid splitting tightly coupled changes that need the same mental model.
 
 Send a task brief based on `references/task-brief-template.md`. Tell ChatGPT Pro to:
 
