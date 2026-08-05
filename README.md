@@ -63,6 +63,7 @@ Every skill is self-contained: one folder, everything it needs, plus a human-rea
 |-------|-------------|
 | [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | Automate short-form video editing by having an AI coding agent clone a reference viral video's shot structure onto your own footage — FFmpeg shot detection, visual clip matching, TTS voiceover + subtitles, output as an editable CapCut (剪映) draft. |
 | [kura-yang-content-pipeline](./skills/content/kura-yang-content-pipeline/SKILL.md) | Write publish-ready Traditional Chinese long-form features on design, architecture, hospitality, products, and people in a Kura Yang / MOT TIMES-inspired editorial voice, with built-in controls for varied rhythm, semantic density, and deliberate imperfection. |
+| [tenten-blog-writer](./skills/content/tenten-blog-writer/SKILL.md) | Write a bilingual editorial package from a topic, draft, or social URL: a Traditional Chinese long-form article plus a natively written (not translated) English version, with a 30-item AI-tell sweep, Taiwan localization and MOE punctuation, depth and sourcing standards, SEO/AEO/GEO structure, a three-layer quality gate, and Nano Banana infographic prompts. Internal links come from a live MCP content index instead of a CSV — adapt the endpoint to your own database. |
 
 ### Marketing
 

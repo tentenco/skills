@@ -63,6 +63,7 @@ skills/
 |-------|------|
 | [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | 让 AI coding agent 把参考爆款视频的分镜结构套用到你自己的素材上，自动化短视频剪辑：FFmpeg 检测镜头切点、视觉比对素材、生成 TTS 旁白＋字幕，输出成可再编辑的剪映草稿。 |
 | [kura-yang-content-pipeline](./skills/content/kura-yang-content-pipeline/SKILL.md) | 以 Kura Yang／MOT TIMES 式编辑语气撰写可直接刊登的繁体中文设计、建筑、旅宿、产品与人物深度长文，并内置节奏变化、语义密度与控制性不完美三项写作指纹。 |
+| [tenten-blog-writer](./skills/content/tenten-blog-writer/SKILL.md) | 从主题、草稿或社群 URL 产出双语编辑包：繁体中文长文加上原生撰写（非翻译）的英文版，内建 30 项 AI 痕迹清查、台湾本地化与标点规范、深度与来源标准、SEO/AEO/GEO 结构、三层质量检核，以及 Nano Banana infographic prompts。内部链接改由在线 MCP 内容索引提供，不再依赖 CSV——换成自己的数据库即可沿用。 |
 
 ### Marketing（营销）
 
