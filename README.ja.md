@@ -63,6 +63,7 @@ skills/
 |-------|------|
 | [codex-auto-clip-workflow](./skills/content/codex-auto-clip-workflow/SKILL.md) | AI コーディングエージェントが参考にしたバズ動画のショット構成を自分の素材へ適用し、短尺動画編集を自動化：FFmpeg でカット検出、素材をビジュアルマッチング、TTS ナレーション＋字幕を生成し、再編集可能な CapCut（剪映）ドラフトとして出力します。 |
 | [kura-yang-content-pipeline](./skills/content/kura-yang-content-pipeline/SKILL.md) | Kura Yang／MOT TIMES を参考にした編集トーンで、デザイン、建築、ホテル、製品、人物に関する掲載可能な繁体字中国語の長文記事を作成し、リズム、意味密度、意図的な不完全さを組み込みます。 |
+| [tenten-blog-writer](./skills/content/tenten-blog-writer/SKILL.md) | トピック、下書き、SNS の URL からバイリンガル編集パッケージを生成します。繁体字中国語の長文記事と、翻訳ではなくネイティブに書き起こした英語版をセットで出力し、30 項目の AI 臭さ検出、台湾ローカライズと句読点規則、深さと出典の基準、SEO/AEO/GEO 構造、3 層の品質ゲート、Nano Banana インフォグラフィック用プロンプトを備えます。内部リンクは CSV ではなくライブの MCP コンテンツインデックスから取得し、自前のデータベースに差し替えられます。 |
 
 ### Marketing（マーケティング）
 
